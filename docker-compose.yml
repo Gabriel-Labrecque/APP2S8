@@ -1,0 +1,20 @@
+services:
+  sanssoussi:
+    build:
+      context: ./Sanssoussi
+      args:
+        # Id of the host user who owns ./data (run `id -u` to check)
+        UID: ${UID:-1000}
+    image: sanssoussi
+    ports:
+      - "5000:5000"
+      - "5001:5001"
+    environment:
+      # Real Google credentials go in a .env file next to this one (never committed):
+      #   GOOGLE_CLIENT_ID=...
+      #   GOOGLE_CLIENT_SECRET=...
+      Authentication__Google__ClientId: ${GOOGLE_CLIENT_ID:-ID123}
+      Authentication__Google__ClientSecret: ${GOOGLE_CLIENT_SECRET:-SECRET123}
+    volumes:
+      # Database and logs are kept on the host, in ./data, and survive the container
+      - ./data:/app/data

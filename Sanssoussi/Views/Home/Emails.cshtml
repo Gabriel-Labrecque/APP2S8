@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Emails";
+}
+
+<h2>Emails</h2>
+
+Cette section est réservée à l'administrateur
+
+@Html.AntiForgeryToken()
+
+<div id="emailData">
+</div>
+
+@section Scripts {
+    <script src="@Url.Content("~/js/emails.js")" type="text/javascript"></script>
+}

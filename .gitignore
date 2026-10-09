@@ -1,0 +1,15 @@
+# Build output
+bin/
+obj/
+.vs/
+
+# Run-time data: database and logs (the folder itself is kept)
+data/*
+!data/.gitkeep
+*.db
+*.db-shm
+*.db-wal
+logs/
+
+# Secrets
+.env

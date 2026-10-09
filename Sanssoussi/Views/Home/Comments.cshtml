@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Comments";
+}
+
+@model List<string>
+
+<h2>Commentaires</h2>
+
+@foreach (var comment in Model)
+{
+    <div>
+        @comment
+    </div>
+}
+
+@Html.AntiForgeryToken()
+
+<textarea rows="2" cols="20" id="NewComment"></textarea>
+
+<input id="NewCommentsBtn" value="Nouveau commentaire" type="button" />
